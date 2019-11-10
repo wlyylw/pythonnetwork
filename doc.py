@@ -17,10 +17,10 @@ class Topic:
         return self.information
     def get_option(self):
         return self.option
-
-#获取答案
-# def regex_get_answer():
-
+    def show_Topic(self):
+        print("题目:  "+ self.information)
+        print("选项:  "+ self.option)
+        print("答案:  "+ self.answer)
 
 def getDocxContext(file):
     document = Document(file)
@@ -33,26 +33,23 @@ def getDocxContext(file):
 #有括号的都是题目 在碰到括号之前 的文本都作为答案
 def clissfy():
     text = getDocxContext("E:\\Desktop\\kstk.docx")
-    pattern = re.compile(r'[(|（]')      #题目的正则
+    pattern = re.compile(r'[(|（]')      #题目的正则  。。写完才发现多余了因为偷懒了
     pattern_sub_num = re.compile('(.*?、)?')  #去掉题目前面标号的正则
-    pattern_four = re.compile('[ABCDＡＢＣＤ].*?[ABCDＡＢＣＤ].*?[ABCDＡＢＣＤ].*?[ABCDＡＢＣＤ]') # 选项的正则  偷懒只选择一行四个的
+    pattern_four = re.compile('[ABCDＡＢＣＤ].*?[ABCDＡＢＣＤ].*?[ABCDＡＢＣＤ].*?[ABCDＡＢＣＤ]') # 选项的正则   。。写完才发现多余了因为偷懒了  要补完有用，先留着
     pattern_sub_answer = re.compile('(（|[(]).*([)]|）)')     #去掉答案的正则
     pattern_save_answer = re.compile('[(（].*?([ABCD]).*?[)）]')  #选择答案的正则
-    for i in range(0, len(text)):
-        if (pattern_four.findall(text[i])):
-            context = str(text[i])
-            print(context)
-        if (pattern.findall(text[i])):  #题目
-            context = str(text[i])
-            answer = pattern_save_answer.findall(context)
-            answer ="".join(answer) #答案
-            information = pattern_sub_num.sub("",context,1)       #去掉标号后的题目
-            information = pattern_sub_answer.sub("( )",information)
-            print(information)
-
-
-
+    list =[]
+    for i in range(0, len(text)-2,2):
+        context = str(text[i])
+        answer = pattern_save_answer.findall(context)
+        answer ="".join(answer) #答案
+        information = pattern_sub_num.sub("",context,1)       #去掉标号后的题目
+        information = pattern_sub_answer.sub("( )",information)
+        option = str(text[i+1]) #选项
+        list.append(Topic(information,answer,option))
+    return  list
 def main():
-    clissfy()
-
+    list = clissfy()
+    for i in list:
+        i.show_Topic()
 main()
