@@ -4,12 +4,10 @@ import  re
 
 #题目类
 class Topic:
-    num ="";
     information="";
     answer="";
     option=""
-    def __init__(self,num,information,answer,option):
-        self.num = num
+    def __init__(self,information,answer,option):
         self.answer =answer
         self.information =information
         self.option=option
@@ -17,8 +15,6 @@ class Topic:
         return self.answer
     def get_information(self):
         return self.information
-    def get_num(self):
-        return self.num
     def get_option(self):
         return self.option
 
@@ -38,18 +34,21 @@ def getDocxContext(file):
 def clissfy():
     text = getDocxContext("E:\\Desktop\\kstk.docx")
     pattern = re.compile(r'[(|（]')      #题目的正则
+    pattern_sub_num = re.compile('(.*?、)?')  #去掉题目前面标号的正则
     pattern_four = re.compile('[ABCDＡＢＣＤ].*?[ABCDＡＢＣＤ].*?[ABCDＡＢＣＤ].*?[ABCDＡＢＣＤ]') # 选项的正则  偷懒只选择一行四个的
-    pattern_sub_num = re.compile('(.*?、?)')  #去掉前面标号的正则
-    # pattern_sub_answer = re.compile('(（|[(]).*([)]|）)')     #去掉答案的正则
+    pattern_sub_answer = re.compile('(（|[(]).*([)]|）)')     #去掉答案的正则
     pattern_save_answer = re.compile('[(（].*?([ABCD]).*?[)）]')  #选择答案的正则
     for i in range(0, len(text)):
-        if (pattern.findall(text[i])):
+        if (pattern_four.findall(text[i])):
             context = str(text[i])
-            context = pattern_sub_num.sub("",context)
-            context = pattern_save_answer.findall(context)
-            # context = pattern_select_answer.match(context)
-            # context = pattern_sub_answer.sub("( )",context)
             print(context)
+        if (pattern.findall(text[i])):  #题目
+            context = str(text[i])
+            answer = pattern_save_answer.findall(context)
+            answer ="".join(answer) #答案
+            information = pattern_sub_num.sub("",context,1)       #去掉标号后的题目
+            information = pattern_sub_answer.sub("( )",information)
+            print(information)
 
 
 
