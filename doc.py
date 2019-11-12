@@ -3,7 +3,7 @@ import  re
  #选取题目 用正则表达式换掉题目中的答案 然后用变量保存答案作为判断依据
 
 #题目类
-class Topic:
+class Topic(object):
     information="";
     answer="";
     option=""
@@ -31,8 +31,8 @@ def getDocxContext(file):
 
 
 #有括号的都是题目 在碰到括号之前 的文本都作为答案
-def clissfy():
-    text = getDocxContext("E:\\Desktop\\kstk.docx")
+def clissfy(path):
+    text = getDocxContext(path)#"E:\\Desktop\\kstk.docx"
     pattern = re.compile(r'[(|（]')      #题目的正则  。。写完才发现多余了因为偷懒了
     pattern_sub_num = re.compile('(.*?、)?')  #去掉题目前面标号的正则
     pattern_four = re.compile('[ABCDＡＢＣＤ].*?[ABCDＡＢＣＤ].*?[ABCDＡＢＣＤ].*?[ABCDＡＢＣＤ]') # 选项的正则   。。写完才发现多余了因为偷懒了  要补完有用，先留着
@@ -48,8 +48,8 @@ def clissfy():
         option = str(text[i+1]) #选项
         list.append(Topic(information,answer,option))
     return  list
-def main():
-    list = clissfy()
-    for i in list:
-        i.show_Topic()
-main()
+# def main():
+#     list = clissfy()
+#     for i in list:
+#         i.show_Topic()
+# main()

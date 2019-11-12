@@ -7,7 +7,6 @@ import  json
 
 
 
-
 def DeSerializ(t):
     return doc.Topic(
          t["information"],
@@ -24,14 +23,16 @@ tcp_client = socket(AF_INET, SOCK_STREAM)
 tcp_client.connect(ip_port)
 
 while True:
-    msg = input('>>:')          #发送空格到自己的发送缓存中
+
     # msg=input('>>:').strip()  #去掉空格
-    tcp_client.send(msg.encode('utf-8'))
-    print('客户端已经发送消息')
-    data = tcp_client.recv(buffer_size)  #收缓存为空则阻塞
-    data=data.decode('utf-8')
-    data = json.loads(data,object_hook=DeSerializ)
-    print('收到服务端发来的消息是', data.option)
-    print(data.answer)
-    print(data.information)
+    msg = input('>>:')          #发送空格到自己的发送缓存中
+    for i in range(0,10):
+        tcp_client.send(msg.encode('utf-8'))
+        print('客户端已经发送消息')
+        data = tcp_client.recv(buffer_size)  #收缓存为空则阻塞
+        data=data.decode('utf-8')
+        data = json.loads(data,object_hook=DeSerializ)
+        print('题目: ',data.information)
+        print('选项: ', data.option)
+        print('答案: ',data.answer)
 tcp_client.close()
