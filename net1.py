@@ -30,7 +30,6 @@ class server_operator():
         conn, addr = tcp_server.accept()  # 服务器阻塞
         self.addr =addr #客户端地址
         self.conn = conn#双向连接
-
     def __init__(self):
         self.number =0 #题目计数
 
