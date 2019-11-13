@@ -33,6 +33,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
     def btn_start_test(self):
         print("")
         server = net1.server_operator()
+        self.textEdit.setText("考试开始")
         print('服务端开始运行了')
         server.tcp_operator()
         server.pre_start_test()

@@ -24,15 +24,19 @@ class client_operator:
             # msg=input('>>:').strip()  #去掉空格
             # msg = input('>>:')          #发送空格到自己的发送缓存中
             msg ="start"
+            list = []
             for i in range(0,10):
                 self.tcp_client.send(msg.encode('utf-8'))
                 print('客户端已经发送消息')
                 data = self.tcp_client.recv(buffer_size)  #收缓存为空则阻塞
                 data=data.decode('utf-8')
                 data = json.loads(data,object_hook=DeSerializ)
-                print('题目: ',data.information)
-                print('选项: ', data.option)
-                print('答案: ',data.answer)
+                # print('题目: ',data.information)
+                # print('选项: ', data.option)
+                # print('答案: ',data.answer)
+                topic = doc.Topic(data.information,data.answer,data.option)
+                list.append(topic)
+            return list
 
     def tcp_operator_close(self):
         self.tcp_client.close()
