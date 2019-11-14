@@ -36,14 +36,18 @@ class server_operator():
     def pre_start_test(self):
         while True:
             data = self.conn.recv(buffer_size)  # 收缓存为空，则阻塞
-            print('客户端发来的消息是', data.decode('utf-8'))
+            msg = data.decode('utf-8')
+            print('客户端发来的消息是', msg)
             topic = list[random_list[self.number]]  # 随机10题
             topic = json.dumps(topic, default=Serializ)
             self.conn.send(bytes(topic, encoding='utf-8'))
             self.number += 1
             print("number: ", self)
-        conn.close()
-        tcp_server.close()
+            if msg =="end":
+                break
+    def server_close(self):
+            self.conn.close()
+            self.tcp_server.close()
 
 
 
