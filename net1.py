@@ -42,14 +42,20 @@ class server_operator():
             topic = json.dumps(topic, default=Serializ)
             self.conn.send(bytes(topic, encoding='utf-8'))
             self.number += 1
-            print("number: ", self)
+            # print("number: ", self)
+            # print('双向链接是', self.conn)
+
+
             if msg =="end":
                 break
-    def server_close(self):
+    def server_close_conn(self):
             self.conn.close()
+    def server_close_tcp(self):
             self.tcp_server.close()
-
-
+    def get_conn(self):
+        return self.conn
+    def get_addr(self):
+        return self.addr
 
 
 
