@@ -1,7 +1,9 @@
-import doc
-from socket import *
-import json
 import threading
+from socket import *
+import doc
+import random
+import json
+
 
 def DeSerializ(t):
     return doc.Topic(
@@ -9,14 +11,18 @@ def DeSerializ(t):
          t["answer"],
          t["option"]
     )
+
 ip_port = ('127.0.0.1', 8080)
 back_log = 40
 buffer_size = 1024
 
-class client_operator():
-
-    def __init__(self):
-        pass
+class thread_client(threading.Thread):
+    def __init__(self, threadID , name):
+        threading.Thread.__init__(self)
+        self.name = name
+        self.threadID = threadID
+        self.name = name
+        self.tcp_operator()
 
     def tcp_operator(self):
         self.tcp_client = socket(AF_INET, SOCK_STREAM)
@@ -40,5 +46,10 @@ class client_operator():
 
     def tcp_operator_close(self):
         self.tcp_client.close()
+
     def send_mes(self,msg):
         self.tcp_client.send(msg.encode('utf-8'))
+
+    def run(self):
+        currentTreadname = threading.currentThread()
+        print("running in", currentTreadname)

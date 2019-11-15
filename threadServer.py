@@ -1,8 +1,8 @@
+import threading
 from socket import *
 import doc
-import json
 import random
-import threading
+import json
 
 
 def Serializ(Topic):
@@ -19,11 +19,15 @@ list = doc.clissfy("E:\\Desktop\\kstk.docx")    #获取已经处理好的word文
 MAX_TOPIC = len(list)
 random_list = random.sample(range(0,MAX_TOPIC), 10)
 
-class server_operator():
+class thread_server(threading.Thread):
 
-    def __init__(self):
+    def __init__(self, threadID , name):
+        threading.Thread.__init__(self)
+        self.threadID = threadID
+        self.name = name
         self.number = 0
-
+        self.conn = None
+        self.addr = None
     def tcp_operator(self):
         tcp_server = socket(AF_INET, SOCK_STREAM)
         ip_port = ('127.0.0.1', 8080)
@@ -33,7 +37,16 @@ class server_operator():
         self.conn = conn
         self.addr = addr
 
+    def run(self):
+        currentTreadname = threading.currentThread()
+        print("running in", currentTreadname)
+        self.tcp_operator()
 
+    def get_conn(self):
+        return self.conn
+
+    def get_addr(self):
+        return self.addr
 
     def pre_start_test(self):
         while True:
@@ -46,27 +59,3 @@ class server_operator():
             self.number += 1
             if msg == "end":
                 break
-
-    def server_close_conn(self):
-            self.conn.close()
-
-    def server_close_tcp(self):
-            self.tcp_server.close()
-
-    def get_conn(self):
-        return self.conn
-
-    def get_addr(self):
-        return self.addr
-
-
-
-
-
-
-
-
-
-
-
-

@@ -48,8 +48,3 @@ def clissfy(path):
         option = str(text[i+1]) #选项
         list.append(Topic(information,answer,option))
     return  list
-# def main():
-#     list = clissfy()
-#     for i in list:
-#         i.show_Topic()
-# main()

@@ -1,11 +1,10 @@
-import doc
 import sys
 from PyQt5 import QtWidgets
 from client_ui import Ui_Form
-from PyQt5.QtWidgets import *
 import os
 import re
 import net2
+import threadClient
 
 class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
     def __init__(self):
@@ -17,9 +16,13 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         self.flag = 0
         self.error_detail = 0
         self.score = 0
-        self.client = net2.client_operator()
-        print("已连接")
-        self.client.tcp_operator()
+        self.thread_client = threadClient.thread_client(1, "client1")
+        self.thread_client.start()
+
+
+
+
+
     def on_last_topic(self):
         if (self.current_page <= 0):
             pass
@@ -33,6 +36,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         else:
             self.current_page += 1
             self.stackedWidget.setCurrentIndex(self.current_page)
+
     def on_start_test(self):
         if  self.flag == 0:
             self.flag+=1
@@ -43,14 +47,17 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             self.Topicend3.setVisible(False)
             self.Topicend4.setVisible(False)
             self.btn_start_test.setText("提交答卷")
-            self.list = self.client.pre_start_test()
+
+            self.list = self.thread_client.pre_start_test()
+
             self.current_page = 0
             self.classify_topic()
             self.stackedWidget.setCurrentIndex(self.current_page)
         elif self.flag == 1:        #提交答案
             self.flag += 1
-            msg = self.score
-            self.client.send_mes(str(msg))
+            msg = self.get_sum()
+            self.thread_client.send_mes(str(msg))
+
             self.Topicend.setVisible(True)
             self.Topicend2.setVisible(True)
             self.Topicend3.setVisible(True)
@@ -110,7 +117,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             self.retroction_situtation(self.error_detail)
         else:
             self.retroction_situtation(self.error_detail)
-            #self.client.tcp_operator_close()
+
     def classify_topic(self):
         pattern_A = re.compile('A.?(.*?)B')  # 去掉题目前面标号的正则
         pattern_B = re.compile('B.?(.*?)C')
@@ -208,7 +215,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         # print(self.error_list_answer)
         print("总分： " + str(self.score))
         print("答对题数: "+ str(self.right_num))
-
+        return self.score
     def on_see_error(self):
         if self.error_detail == 0:
             self.retroction_situtation(self.error_detail)

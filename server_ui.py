@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'qt.ui'
-#
-# Created by: PyQt5 UI code generator 5.9.2
-#
-# WARNING! All changes made in this file will be lost!
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_Form(object):
@@ -75,4 +67,5 @@ class Ui_Form(object):
         self.end_test.setText(_translate("Form", "结束考试"))
         self.see_grade.setText(_translate("Form", "查看成绩"))
         self.start_test.setText(_translate("Form", "开始考试"))
+
 
