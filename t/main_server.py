@@ -21,6 +21,9 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         self.end_test.clicked.connect(self.btn_end_test)
         self.see_grade.clicked.connect(self.btn_see_grade)
         self.select_topic.clicked.connect(self.btn_select_topic)
+        self.msg = None
+        self.score =None
+        self.text = ""
 
 
         self.serverthread = st.ServerThread()
@@ -29,10 +32,10 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
     def btn_select_topic(self):
         fileName_choose, filetype = QFileDialog.getOpenFileName(self, "导入试题", self.cwd,"All Files (*);;Text Files (*.txt)")
         if fileName_choose == "":
-            self.textEdit.setText("取消了选择")
             return
         else:
-            self.textEdit.setText("导入完成")
+            self.text += "导入完成\n"
+            self.textEdit.setText(self.text)
             print(fileName_choose)
 
 
@@ -42,16 +45,26 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         if self.isFirstStartThread == 0 :
             self.isFirstStartThread = 1
             serverthread.start()
+            self.text += "考试开始\n"
         else:
             pass
 
 
 
     def btn_see_grade(self):
+        # address = self.serverthread.get_address()
+        # msg = self.serverthread.msg
+        self.textEdit.setText(self.text)
         pass
 
     def btn_end_test(self):
-        pass
+        score = ""
+        score_list = self.serverthread.score_list
+        for i in range(0,len(score_list)):
+            score +="用户" + str(score_list[i])+"\n"
+        self.text += "考试已结束"
+        self.textEdit.setText(self.text)
+        self.text =self.text+"\n"+score
 
 
 

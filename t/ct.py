@@ -24,9 +24,9 @@ class ClientThread():
             #这一段执行一次  客户端第一次请求的时候调用
             for i in range(0, 11):
                 if i == 10:
-                    msg = "NG"
+                    msg = "NotSend"
                 else:
-                    msg = "YG"
+                    msg = "Send"
                     s.send(msg.encode())
                     recvdata = s.recv(buffsize).decode('utf-8')
                     recvdata = json.loads(recvdata, object_hook=DeSerializ)

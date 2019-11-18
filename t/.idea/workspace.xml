@@ -10,14 +10,14 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/t$c.coverage" NAME="c Coverage Results" MODIFIED="1574065418565" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/t$main_server.coverage" NAME="main_server Coverage Results" MODIFIED="1574067579005" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/t$main_server.coverage" NAME="main_server Coverage Results" MODIFIED="1574072655834" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/t$c1.coverage" NAME="c1 Coverage Results" MODIFIED="1573975462294" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/t$client_ui.coverage" NAME="client_ui Coverage Results" MODIFIED="1573980188917" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/t$s.coverage" NAME="s Coverage Results" MODIFIED="1573975454922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/t$main_client.coverage" NAME="main_client Coverage Results" MODIFIED="1574067675738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/t$main_client.coverage" NAME="main_client Coverage Results" MODIFIED="1574072659869" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/t$doc.coverage" NAME="doc Coverage Results" MODIFIED="1573976447643" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/t$st.coverage" NAME="st Coverage Results" MODIFIED="1574064203778" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/t$client_thread.coverage" NAME="client_thread Coverage Results" MODIFIED="1574064212374" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/t$client_thread.coverage" NAME="client_thread Coverage Results" MODIFIED="1574072678561" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/t$server_thread.coverage" NAME="server_thread Coverage Results" MODIFIED="1574062572747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
@@ -25,8 +25,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main_server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="302">
+              <caret line="45" column="39" lean-forward="true" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
                 <element signature="e#2524#2645#0" />
@@ -35,31 +35,32 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main_client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="196" lean-forward="true" selection-start-line="196" selection-end-line="196" />
+            <state relative-caret-position="230">
+              <caret line="96" column="57" lean-forward="true" selection-start-line="96" selection-start-column="57" selection-end-line="96" selection-end-column="57" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
-                <element signature="e#325#329#0" />
-                <element signature="e#1152#1675#0" />
-                <element signature="e#2072#2628#0" />
-                <element signature="e#2727#2845#0" />
-                <element signature="e#2945#3064#0" />
-                <element signature="e#3163#3280#0" />
-                <element signature="e#3379#3496#0" />
-                <element signature="e#3596#3714#0" />
-                <element signature="e#3813#3932#0" />
-                <element signature="e#4032#4151#0" />
-                <element signature="e#4251#4370#0" />
-                <element signature="e#502#662#0" />
-                <element signature="e#701#861#0" />
-                <element signature="e#964#5430#0" />
-                <element signature="e#5463#6094#0" />
-                <element signature="e#6133#6349#0" />
-                <element signature="e#6387#10028#0" />
-                <element signature="e#10098#10451#0" />
+                <element signature="e#4198#4358#0" />
+                <element signature="e#4397#4557#0" />
+                <element signature="e#4597#9092#0" />
+                <element signature="e#9125#9681#0" />
+                <element signature="e#9719#9937#0" />
+                <element signature="e#9976#13627#0" />
+                <element signature="e#13701#14060#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/st.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="141">
+              <caret line="36" column="48" lean-forward="true" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -68,10 +69,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ct.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+            <state relative-caret-position="56">
+              <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
               <folding>
                 <element signature="e#15#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client_thread.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="325">
+              <caret line="369" column="42" lean-forward="true" selection-start-line="369" selection-start-column="42" selection-end-line="369" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+                <element signature="e#4276#4436#0" />
+                <element signature="e#4475#4635#0" />
+                <element signature="e#4675#9170#0" />
+                <element signature="e#9203#9759#0" />
+                <element signature="e#9797#10015#0" />
+                <element signature="e#10054#13705#0" />
+                <element signature="e#13779#14138#0" />
               </folding>
             </state>
           </provider>
@@ -89,6 +109,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>from</find>
+      <find>textedit</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -98,13 +119,14 @@
         <option value="$PROJECT_DIR$/c1.py" />
         <option value="$PROJECT_DIR$/doc.py" />
         <option value="$PROJECT_DIR$/server_thread.py" />
-        <option value="$PROJECT_DIR$/main_server.py" />
-        <option value="$PROJECT_DIR$/client_thread.py" />
-        <option value="$PROJECT_DIR$/st.py" />
         <option value="$PROJECT_DIR$/c.py" />
         <option value="$PROJECT_DIR$/client_ui.py" />
-        <option value="$PROJECT_DIR$/ct.py" />
         <option value="$PROJECT_DIR$/main_client.py" />
+        <option value="$PROJECT_DIR$/ct.py" />
+        <option value="$PROJECT_DIR$/client_thread.py" />
+        <option value="$PROJECT_DIR$/st.py" />
+        <option value="$PROJECT_DIR$/server_ui.py" />
+        <option value="$PROJECT_DIR$/main_server.py" />
       </list>
     </option>
   </component>
@@ -160,7 +182,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main_client">
+  <component name="RunManager" selected="Python.client_thread">
     <configuration name="c" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="t" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -273,10 +295,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.client_thread" />
         <item itemvalue="Python.main_client" />
         <item itemvalue="Python.main_server" />
         <item itemvalue="Python.c" />
-        <item itemvalue="Python.client_thread" />
         <item itemvalue="Python.st" />
       </list>
     </recent_temporary>
@@ -293,12 +315,12 @@
       <updated>1573974311613</updated>
       <workItem from="1573974313222" duration="657000" />
       <workItem from="1573975220730" duration="5552000" />
-      <workItem from="1574061099067" duration="6485000" />
+      <workItem from="1574061099067" duration="10507000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12694000" />
+    <option name="totallyTimeSpent" value="16716000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -310,7 +332,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3026874" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39886847" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -348,13 +370,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server_ui.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="8" column="29" lean-forward="true" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/Anaconda3/Lib/site-packages/docx/opc/phys_pkg.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
@@ -386,17 +401,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client_thread.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="e#15#35#0" expanded="true" />
-            <element signature="e#351#1014#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/Anaconda3/Lib/threading.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="139">
@@ -416,8 +420,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/st.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="56" column="25" selection-start-line="46" selection-start-column="10" selection-end-line="56" selection-end-column="25" />
+        <state relative-caret-position="141">
+          <caret line="36" column="48" lean-forward="true" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
@@ -426,18 +430,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ct.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+        <state relative-caret-position="56">
+          <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
           <folding>
             <element signature="e#15#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/server_ui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="55" column="29" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main_server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="302">
+          <caret line="45" column="39" lean-forward="true" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
             <element signature="e#2524#2645#0" />
@@ -447,28 +458,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main_client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="196" lean-forward="true" selection-start-line="196" selection-end-line="196" />
+        <state relative-caret-position="230">
+          <caret line="96" column="57" lean-forward="true" selection-start-line="96" selection-start-column="57" selection-end-line="96" selection-end-column="57" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <element signature="e#325#329#0" />
-            <element signature="e#1152#1675#0" />
-            <element signature="e#2072#2628#0" />
-            <element signature="e#2727#2845#0" />
-            <element signature="e#2945#3064#0" />
-            <element signature="e#3163#3280#0" />
-            <element signature="e#3379#3496#0" />
-            <element signature="e#3596#3714#0" />
-            <element signature="e#3813#3932#0" />
-            <element signature="e#4032#4151#0" />
-            <element signature="e#4251#4370#0" />
-            <element signature="e#502#662#0" />
-            <element signature="e#701#861#0" />
-            <element signature="e#964#5430#0" />
-            <element signature="e#5463#6094#0" />
-            <element signature="e#6133#6349#0" />
-            <element signature="e#6387#10028#0" />
-            <element signature="e#10098#10451#0" />
+            <element signature="e#4198#4358#0" />
+            <element signature="e#4397#4557#0" />
+            <element signature="e#4597#9092#0" />
+            <element signature="e#9125#9681#0" />
+            <element signature="e#9719#9937#0" />
+            <element signature="e#9976#13627#0" />
+            <element signature="e#13701#14060#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client_thread.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="369" column="42" lean-forward="true" selection-start-line="369" selection-start-column="42" selection-end-line="369" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#4276#4436#0" />
+            <element signature="e#4475#4635#0" />
+            <element signature="e#4675#9170#0" />
+            <element signature="e#9203#9759#0" />
+            <element signature="e#9797#10015#0" />
+            <element signature="e#10054#13705#0" />
+            <element signature="e#13779#14138#0" />
           </folding>
         </state>
       </provider>

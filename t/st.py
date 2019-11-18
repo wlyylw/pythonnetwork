@@ -23,31 +23,40 @@ class ServerThread(threading.Thread):
         def __init__(self):
             threading.Thread.__init__(self)
             self.clientsock = None
+            self.msg = None
             self.clientaddress = None
-
+            self.score_list =[]
         def tcplink(self,sock,addr):
             while True:
                 clientsock = self.clientsock
                 recvdata=clientsock.recv(buffsize).decode('utf-8')
+                if len(recvdata) <= 3:
+                    print("考试结束")
+                    self.msg = recvdata
+                    list = "用户" + str(self.clientaddress) + "得分" + recvdata
+                    self.score_list.append(list)
+                    break
                 list_topic = doc.get_ten_topic()
                 i = 0
-                while recvdata == "YG":
+                while recvdata == "Send":
                     topic = list_topic[i]
                     topic = json.dumps(topic,default=Serializ)
                     clientsock.send(topic.encode())
-                    if recvdata == "NG":
+                    if recvdata == "NotSend":
                         print("结束发送题目")
                         break
                     i += 1
                     recvdata = clientsock.recv(buffsize).decode('utf-8')
-            print("发送成功")
+
             clientsock.close()
+
 
         def run(self):
             print("线程开启")
             while True:
                 clientsock, clientaddress = s.accept()
                 self.clientsock = clientsock
+                self.clientaddress = clientaddress
                 print('connect from:', clientaddress)
                 # 传输数据都利用clientsock，和s无关
                 t = threading.Thread(target=self.tcplink, args=(clientsock, clientaddress))  # t为新创建的线程
@@ -55,4 +64,7 @@ class ServerThread(threading.Thread):
                 print("start")
             s.close()
             print("线程关闭")
+        def get_address(self):
+            return self.clientaddress
+
 

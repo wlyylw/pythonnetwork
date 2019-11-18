@@ -51,6 +51,10 @@ class MyPyQT_Form(QtWidgets.QWidget, Ui_Form):
             self.current_page = 11
             self.stackedWidget.setCurrentIndex(self.current_page)
             self.btn_start_test.setText("查看答题情况")
+            #send finish
+            clientthread.send_msg(str(self.score))
+
+
 
 
         elif self.flag == 2 and (self.error_detail < len(self.error_list)):
