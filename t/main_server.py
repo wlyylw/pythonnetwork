@@ -24,7 +24,8 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         self.msg = None
         self.score =None
         self.text = ""
-
+        self.StartTest = 0
+        self.EndTest = 0
 
         self.serverthread = st.ServerThread()
 
@@ -45,27 +46,48 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         if self.isFirstStartThread == 0 :
             self.isFirstStartThread = 1
             serverthread.start()
+            self.text = ""
             self.text += "考试开始\n"
+            self.textEdit.setText(self.text)
+            self.StartTest = 1
+
         else:
             pass
 
 
 
+
+
     def btn_see_grade(self):
-        # address = self.serverthread.get_address()
-        # msg = self.serverthread.msg
-        self.textEdit.setText(self.text)
-        pass
+        if self.EndTest ==1:
+            self.textEdit.setText(self.text)
+
+            print("线程关闭")
+        else:
+            pass
 
     def btn_end_test(self):
-        score = ""
-        score_list = self.serverthread.score_list
-        for i in range(0,len(score_list)):
-            score +="用户" + str(score_list[i])+"\n"
-        self.text += "考试已结束"
-        self.textEdit.setText(self.text)
-        self.text =self.text+"\n"+score
-
+        # score = ""
+        # score_list = self.serverthread.score_list
+        # for i in range(0,len(score_list)):
+        #     score +="用户" + str(score_list[i])+"\n"
+        # self.text += "考试已结束"
+        # self.textEdit.setText(self.text)
+        # self.text =self.text+"\n"+score
+        # self.EndTest = 1
+        if self.StartTest == 1:
+            score = ""
+            score_list = self.serverthread.score_list
+            for i in range(0, len(score_list)):
+                score += "用户" + str(score_list[i]) + "\n"
+            self.text += "考试已结束"
+            self.textEdit.setText(self.text)
+            self.text = self.text + "\n" + score
+            self.EndTest = 1
+            # self.serverthread.sendmsg("TestEnd")
+            # self.serverthread.close_tcp()
+        else:
+            pass
 
 
 

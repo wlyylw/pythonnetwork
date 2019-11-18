@@ -4,23 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/main_client.py" line="357" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57d618d4-0cbc-4644-9623-494d9d2647e9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_ui.ui" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/duo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/net1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/net2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qstack.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qstack.ui" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/qt.ui" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/threadServer.py" beforeDir="false" afterPath="$PROJECT_DIR$/threadServer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/what.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/开发现状.png" beforeDir="false" />
-    </list>
+    <list default="true" id="57d618d4-0cbc-4644-9623-494d9d2647e9" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +49,7 @@
             <entry file="file://$PROJECT_DIR$/main_server.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="138">
-                  <caret line="15" column="30" lean-forward="true" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+                  <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
                   <folding>
                     <element signature="e#0#10#0" expanded="true" />
                   </folding>
@@ -76,8 +60,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/threadServer.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="276">
-                  <caret line="33" column="32" lean-forward="true" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+                <state relative-caret-position="667">
+                  <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
                   <folding>
                     <element signature="e#0#16#0" expanded="true" />
                   </folding>
@@ -159,7 +143,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -171,6 +154,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -351,17 +335,17 @@
       <workItem from="1573957545714" duration="2615000" />
       <workItem from="1573973371035" duration="493000" />
       <workItem from="1573974121254" duration="175000" />
+      <workItem from="1574091004255" duration="10000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58990000" />
+    <option name="totallyTimeSpent" value="59000000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1802949" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18230563" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -484,12 +468,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/threadServer.py">
+    <entry file="file://$PROJECT_DIR$/main_client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="33" column="32" lean-forward="true" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+        <state relative-caret-position="184">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
           <folding>
-            <element signature="e#0#16#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -497,19 +481,19 @@
     <entry file="file://$PROJECT_DIR$/main_server.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
-          <caret line="15" column="30" lean-forward="true" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main_client.py">
+    <entry file="file://$PROJECT_DIR$/threadServer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        <state relative-caret-position="667">
+          <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#0#16#0" expanded="true" />
           </folding>
         </state>
       </provider>

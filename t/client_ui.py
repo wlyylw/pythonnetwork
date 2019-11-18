@@ -3,7 +3,9 @@ import sys
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
-
+import tkinter
+import time
+import threading
 
 class Ui_Form(object):
     def __init__(self):
@@ -241,6 +243,8 @@ class Ui_Form(object):
         self.btn_start_error.setGeometry(QtCore.QRect(430, 530, 131, 41))  # TODO：位置
         self.btn_start_error.setObjectName("btn_start_error")
 
+
+
         # self.btn_start_test.clicked.connect(self.on_start_test)
 
         # ZZZZZZZZZZZZ
@@ -292,6 +296,17 @@ class Ui_Form(object):
         self.pageerror0.setObjectName("pageerror0")
         self.stackedWidget.addWidget(self.pageerror0)  #
 
+
+        #未在规定时间完成  page 2222
+        self.pageundo = QtWidgets.QWidget()
+        self.pageundo.setObjectName("pageundo")
+        self.stackedWidget.addWidget(self.pageundo)  #
+        self.undo = QtWidgets.QLabel(self.pageundo)
+        self.undo.setGeometry(QtCore.QRect(30, 15, 991, 111))
+        self.undo.setObjectName("undo")
+        self.undo.setText("未在规定时间内完成")
+
+
         #############################
         self.btn_last_topic = QtWidgets.QPushButton(Form)
         self.btn_last_topic.setGeometry(QtCore.QRect(40, 580, 131, 41))
@@ -300,6 +315,11 @@ class Ui_Form(object):
         self.btn_next_topic = QtWidgets.QPushButton(Form)
         self.btn_next_topic.setGeometry(QtCore.QRect(910, 580, 131, 41))
         self.btn_next_topic.setObjectName("btn_next_topic")
+        
+        
+        self.tktime = QtWidgets.QLabel(Form)
+        self.tktime.setGeometry(QtCore.QRect(430, 10, 200, 41))
+        self.tktime.setObjectName("tktime")
 
         self.btn_last_topic.clicked.connect(self.on_last_topic)
         self.btn_next_topic.clicked.connect(self.on_next_topic)

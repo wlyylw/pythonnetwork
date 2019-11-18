@@ -4,6 +4,9 @@ from client_ui import Ui_Form
 import ct
 import os
 import re
+import clock
+import threading
+import  time
 
 class MyPyQT_Form(QtWidgets.QWidget, Ui_Form):
     def __init__(self):
@@ -17,11 +20,12 @@ class MyPyQT_Form(QtWidgets.QWidget, Ui_Form):
         self.score = 0
         self.list = None
         self.current_page = None
-
+        self.TimeOver = 0
 
 
     def on_start_test(self):
         #切到试题
+
         if self.flag == 0:
             self.flag += 1
             self.btn_last_topic.setVisible(True)
@@ -31,30 +35,36 @@ class MyPyQT_Form(QtWidgets.QWidget, Ui_Form):
             self.Topicend3.setVisible(False)
             self.Topicend4.setVisible(False)
             self.btn_start_test.setText("提交答卷")
-
             clientthread = self.clientthread
             self.list = clientthread.get_topic()
             self.current_page = 0
             self.classify_topic()
             self.stackedWidget.setCurrentIndex(self.current_page)
+            self.startTimer()
+            # clock.startTimer()  #计时器
+            self.TimeOver = 0
+
         elif self.flag == 1:  # 提交答案
-            self.flag += 1
-            msg = self.get_sum()
-            clientthread = self.clientthread
-            clientthread.send_msg(str(msg))
-            self.Topicend.setVisible(True)
-            self.Topicend2.setVisible(True)
-            self.Topicend3.setVisible(True)
-            self.Topicend4.setVisible(True)
-            self.btn_next_topic.setVisible(False)
-            self.btn_last_topic.setVisible(False)
-            self.current_page = 11
-            self.stackedWidget.setCurrentIndex(self.current_page)
-            self.btn_start_test.setText("查看答题情况")
-            #send finish
-            clientthread.send_msg(str(self.score))
+            if self.TimeOver == 0:
+                # clock.root.destroy()
+                self.flag += 1
+                msg = self.get_sum()
+                clientthread = self.clientthread
+                clientthread.send_msg(str(msg))
+                self.Topicend.setVisible(True)
+                self.Topicend2.setVisible(True)
+                self.Topicend3.setVisible(True)
+                self.Topicend4.setVisible(True)
+                self.btn_next_topic.setVisible(False)
+                self.btn_last_topic.setVisible(False)
+                self.current_page = 11
+                self.stackedWidget.setCurrentIndex(self.current_page)
+                self.btn_start_test.setText("查看答题情况")
 
-
+                clientthread.send_msg(str(self.score))
+            else:
+                self.tktime.setText("已经超过作答时间无法交卷")
+                pass
 
 
         elif self.flag == 2 and (self.error_detail < len(self.error_list)):
@@ -364,6 +374,21 @@ class MyPyQT_Form(QtWidgets.QWidget, Ui_Form):
         )
         pass
     # 写哪些题错了
+
+    def stop(self):
+        for i in range(300, -1, -1):
+            minute = int(i / 60)
+            sec = i % 60
+            self.tktime.setText('剩余作答时间 : ' + str(minute) + '分' + str(sec) + '秒')
+            time.sleep(1)
+        self.TimeOver = 1
+        print(self.TimeOver)
+        print("计时结束")
+
+    # 创建并启动线程
+    def startTimer(self):
+        t = threading.Thread(target=self.stop)
+        t.start()
 
 
 if __name__ == '__main__':

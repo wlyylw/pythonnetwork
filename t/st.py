@@ -3,7 +3,7 @@ import threading
 import doc
 import json
 address='127.0.0.1'     #监听哪些网络  127.0.0.1是监听本机 0.0.0.0是监听整个网络
-port=8080            #监听自己的哪个端口
+port=12345          #监听自己的哪个端口
 buffsize=1024          #接收从客户端发来的数据的缓存区大小
 s = socket(AF_INET, SOCK_STREAM)
 s.bind((address,port))
@@ -26,29 +26,34 @@ class ServerThread(threading.Thread):
             self.msg = None
             self.clientaddress = None
             self.score_list =[]
+            self.TestEnd = 0
         def tcplink(self,sock,addr):
             while True:
                 clientsock = self.clientsock
                 recvdata=clientsock.recv(buffsize).decode('utf-8')
-                if len(recvdata) <= 3:
+                if len(recvdata) <= 5:
                     print("考试结束")
                     self.msg = recvdata
                     list = "用户" + str(self.clientaddress) + "得分" + recvdata
                     self.score_list.append(list)
                     break
+
+
                 list_topic = doc.get_ten_topic()
                 i = 0
-                while recvdata == "Send":
+                while recvdata == "SendTopic":
                     topic = list_topic[i]
                     topic = json.dumps(topic,default=Serializ)
                     clientsock.send(topic.encode())
-                    if recvdata == "NotSend":
+                    if recvdata == "NotSendTopic":
                         print("结束发送题目")
                         break
                     i += 1
                     recvdata = clientsock.recv(buffsize).decode('utf-8')
 
-            clientsock.close()
+
+
+            # clientsock.close()
 
 
         def run(self):
@@ -63,8 +68,15 @@ class ServerThread(threading.Thread):
                 t.start()
                 print("start")
             s.close()
-            print("线程关闭")
+
+
         def get_address(self):
             return self.clientaddress
 
+        def close_tcp(self):
+            self.clientsock.close()
+            print("线程关闭")
 
+        def sendmsg(self,msg):
+            clientsock = self.clientsock
+            clientsock.send(msg.encode())
