@@ -4,7 +4,7 @@ from PyQt5 import QtWidgets
 from server_ui import Ui_Form
 from PyQt5.QtWidgets import *
 import os
-import net1
+
 import threadServer
 
 
@@ -48,7 +48,7 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
             self.textEdit.setText("导入完成")
             print(fileName_choose)
             self.list = doc.clissfy(fileName_choose)
-
+            self.thread_server.setList(self.list)
 
     def btn_start_test(self):
         self.textEdit.setText("考试开始")

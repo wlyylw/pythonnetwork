@@ -3,7 +3,7 @@ from PyQt5 import QtWidgets
 from client_ui import Ui_Form
 import os
 import re
-import net2
+
 import threadClient
 
 class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):

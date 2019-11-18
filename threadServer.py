@@ -14,10 +14,9 @@ def Serializ(Topic):
     }
 
 
-list = doc.clissfy("E:\\Desktop\\kstk.docx")    #获取已经处理好的word文档中的信息
 
-MAX_TOPIC = len(list)
-random_list = random.sample(range(0,MAX_TOPIC), 10)
+
+
 
 class thread_server(threading.Thread):
 
@@ -28,9 +27,10 @@ class thread_server(threading.Thread):
         self.number = 0
         self.conn = None
         self.addr = None
+        self.list =None
     def tcp_operator(self):
         tcp_server = socket(AF_INET, SOCK_STREAM)
-        ip_port = ('127.0.0.1', 8080)
+        ip_port = ('0.0.0.0', 8080)
         tcp_server.bind(ip_port)
         tcp_server.listen(10)
         conn,addr = tcp_server.accept()  # 服务器阻塞
@@ -49,13 +49,18 @@ class thread_server(threading.Thread):
         return self.addr
 
     def pre_start_test(self):
+        MAX_TOPIC = len(self.list)
+        random_list = random.sample(range(0, MAX_TOPIC), 10)  # test
         while True:
             data = self.conn.recv(1024)  # 收缓存为空，则阻塞
             msg = data.decode('utf-8')
             print('客户端发来的消息是', msg)
+            list =self.list
             topic = list[random_list[self.number]]  # 随机10题
             topic = json.dumps(topic, default=Serializ)
             self.conn.send(bytes(topic, encoding='utf-8'))
             self.number += 1
             if msg == "end":
                 break
+    def setList(self,list):
+        self.list =list

@@ -4,19 +4,26 @@ from PyQt5 import QtWidgets
 from server_ui import Ui_Form
 from PyQt5.QtWidgets import *
 import os
-import  net1
+
+import st
+
+
+
 
 class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
+
     def __init__(self):
         super(MyPyQT_Form,self).__init__()
         self.setupUi(self)
         self.cwd = os.getcwd()  # 获取当前程序文件位置
-
-        #点击
+        self.isFirstStartThread = 0
         self.start_test.clicked.connect(self.btn_start_test)
-        # self.end_test.clicked(self.btn_end_test)
-        # self.see_grade.clicked(self.btn_see_grade)
+        self.end_test.clicked.connect(self.btn_end_test)
+        self.see_grade.clicked.connect(self.btn_see_grade)
         self.select_topic.clicked.connect(self.btn_select_topic)
+
+
+        self.serverthread = st.ServerThread()
 
 
     def btn_select_topic(self):
@@ -27,24 +34,31 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         else:
             self.textEdit.setText("导入完成")
             print(fileName_choose)
-            self.list = doc.clissfy(fileName_choose)
+
 
 
     def btn_start_test(self):
-        print("")
-        server = net1.server_operator()
-        print('服务端开始运行了')
-        server.tcp_operator()
-        server.pre_start_test()
+        serverthread = self.serverthread
+        if self.isFirstStartThread == 0 :
+            self.isFirstStartThread = 1
+            serverthread.start()
+        else:
+            pass
 
-    # def btn_see_grade(self):
-    #     print("")
-    #
-    # def btn_end_test(self):
-    #     print("")
+
+
+    def btn_see_grade(self):
+        pass
+
+    def btn_end_test(self):
+        pass
+
+
+
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     my_pyqt_form = MyPyQT_Form()
     my_pyqt_form.show()
     sys.exit(app.exec_())
+
