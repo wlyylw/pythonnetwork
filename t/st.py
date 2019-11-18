@@ -3,7 +3,7 @@ import threading
 import doc
 import json
 address='127.0.0.1'     #监听哪些网络  127.0.0.1是监听本机 0.0.0.0是监听整个网络
-port=12345             #监听自己的哪个端口
+port=8080            #监听自己的哪个端口
 buffsize=1024          #接收从客户端发来的数据的缓存区大小
 s = socket(AF_INET, SOCK_STREAM)
 s.bind((address,port))
@@ -35,15 +35,12 @@ class ServerThread(threading.Thread):
                     topic = list_topic[i]
                     topic = json.dumps(topic,default=Serializ)
                     clientsock.send(topic.encode())
-
-                    print("发送第"+ str(i+1) + "题成功")
                     if recvdata == "NG":
                         print("结束发送题目")
                         break
                     i += 1
                     recvdata = clientsock.recv(buffsize).decode('utf-8')
-                    print(recvdata)
-
+            print("发送成功")
             clientsock.close()
 
         def run(self):

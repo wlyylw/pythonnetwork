@@ -243,9 +243,6 @@ class Ui_Form(object):
 
         # self.btn_start_test.clicked.connect(self.on_start_test)
 
-
-
-
         # ZZZZZZZZZZZZ
         # pageend
         self.pageend = QtWidgets.QLabel(Form)
@@ -264,9 +261,8 @@ class Ui_Form(object):
         self.Topicend4 = QtWidgets.QLabel(Form)
         self.Topicend4.setGeometry(QtCore.QRect(30, 150, 991, 111))
         self.Topicend4.setObjectName("Topicend4")
-        
-        self.stackedWidget.addWidget(self.pageend)  #430, 280, 131, 41
 
+        self.stackedWidget.addWidget(self.pageend)  # 430, 280, 131, 41
 
         # ZZZZZZZZZZZZ
         # pageerror1
@@ -289,9 +285,8 @@ class Ui_Form(object):
 
         self.stackedWidget.addWidget(self.pageerror1)  #
 
-
         # ZZZZZZZZZZZZ
-        #error page
+        # error page
         # pageerror0
         self.pageerror0 = QtWidgets.QWidget()
         self.pageerror0.setObjectName("pageerror0")
@@ -306,16 +301,14 @@ class Ui_Form(object):
         self.btn_next_topic.setGeometry(QtCore.QRect(910, 580, 131, 41))
         self.btn_next_topic.setObjectName("btn_next_topic")
 
-        # self.btn_last_topic.clicked.connect(self.on_last_topic)
-        # self.btn_next_topic.clicked.connect(self.on_next_topic)
+        self.btn_last_topic.clicked.connect(self.on_last_topic)
+        self.btn_next_topic.clicked.connect(self.on_next_topic)
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "在线考试系统"))
-
-
 
         self.btn_next_topic.setText(_translate("Form", "下一页"))
         self.btn_last_topic.setText(_translate("Form", "上一页"))

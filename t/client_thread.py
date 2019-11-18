@@ -37,6 +37,8 @@ def get_topic():
         # if senddata=='exit':
         #     break
         # s.send(senddata.encode())
+
+
 list =get_topic()
 
 for i in range(0,len(list)):
