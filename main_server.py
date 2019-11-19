@@ -5,7 +5,7 @@ from server_ui import Ui_Form
 from PyQt5.QtWidgets import *
 import os
 
-import threadServer
+import st
 
 
 
@@ -16,78 +16,73 @@ class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
         super(MyPyQT_Form,self).__init__()
         self.setupUi(self)
         self.cwd = os.getcwd()  # 获取当前程序文件位置
-        # self.server = net1.server_operator()
-        # self.server.tcp_operator()
-        # self.conn = self.server.get_conn()
-        # self.addr = self.server.get_addr()
-
-        self.thread_server = threadServer.thread_server(1,"server1")
-        self.thread_server.start()
-        self.conn = self.thread_server.get_conn()
-        self.addr = self.thread_server.get_addr()
-
-
-
-
-        self.msg = ""  #得分
-
-
-
+        self.isFirstStartThread = 0
         self.start_test.clicked.connect(self.btn_start_test)
         self.end_test.clicked.connect(self.btn_end_test)
         self.see_grade.clicked.connect(self.btn_see_grade)
         self.select_topic.clicked.connect(self.btn_select_topic)
+        self.msg = None
+        self.score =None
+        self.text = ""
+        self.StartTest = 0
+        self.EndTest = 0
+
+        self.serverthread = st.ServerThread()
 
 
     def btn_select_topic(self):
         fileName_choose, filetype = QFileDialog.getOpenFileName(self, "导入试题", self.cwd,"All Files (*);;Text Files (*.txt)")
         if fileName_choose == "":
-            self.textEdit.setText("取消了选择")
             return
         else:
-            self.textEdit.setText("导入完成")
+            self.text += "导入完成\n"
+            self.textEdit.setText(self.text)
+            self.serverthread.setPath(fileName_choose)
             print(fileName_choose)
-            self.list = doc.clissfy(fileName_choose)
-            self.thread_server.setList(self.list)
+
+
 
     def btn_start_test(self):
-        self.textEdit.setText("考试开始")
-        # self.server.pre_start_test()
-        self.thread_server.pre_start_test()
+        serverthread = self.serverthread
+        if serverthread.path != None:
+            if self.isFirstStartThread == 0 :
+                self.isFirstStartThread = 1
+                serverthread.start()
+                self.text = ""
+                self.text += "考试开始\n"
+                self.textEdit.setText(self.text)
+                self.StartTest = 1
 
-        #TODO：加一个线程收消息
+            else:
+                pass
+        else:
+            self.textEdit.setText("请先选择考题\n")
+            pass
+
+
+
 
 
     def btn_see_grade(self):
-        addr = self.thread_server.get_addr()
-        self.textEdit.setText("用户" +str(addr)+"得分"+self.msg )
+        if self.EndTest ==1:
+            self.textEdit.setText(self.text)
+            print("线程关闭")
+        else:
+            pass
 
     def btn_end_test(self):
-        data = self.thread_server.get_conn().recv(1024)  # 收缓存为空，则阻塞
-        self.msg = data.decode('utf-8')
-        self.textEdit.setText("考试结束,可以查看成绩")
-        pass
-        #
-        # if len(self.conn.recv(1024)) != 0:
-        #     print("Not None")
-        #     self.textEdit.setText("Not None")
-        # else:
-        #     pass
-            #     self.server.server_close_conn()
-        #     print("None")
-
-
-
-        # data = self.conn.recv(1024)  # 收缓存为空，则阻塞
-        # #
-        # self.msg = data.decode('utf-8')
-        # if self.msg != "":
-        #     print('客户端发来的消息是', self.msg)
-        #     print("考试结束")
-        #     self.server.server_close_conn()
-        # else:
-        #     print("未交卷")
-
+        if self.StartTest == 1:
+            score = ""
+            score_list = self.serverthread.score_list
+            for i in range(0, len(score_list)):
+                score += "用户" + str(score_list[i]) + "\n"
+            self.text += "考试已结束"
+            self.textEdit.setText(self.text)
+            self.text = self.text + "\n" + score
+            self.EndTest = 1
+            self.serverthread.close_tcp()
+        else:
+            pass
 
 
 

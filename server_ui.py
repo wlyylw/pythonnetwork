@@ -54,7 +54,7 @@ class Ui_Form(object):
         self.start_test.setAutoRepeatDelay(300)
         self.start_test.setObjectName("start_test")
         self.textEdit = QtWidgets.QTextEdit(Form)
-        self.textEdit.setGeometry(QtCore.QRect(130, 390, 551, 87))
+        self.textEdit.setGeometry(QtCore.QRect(130, 350, 551, 220))
         self.textEdit.setObjectName("textEdit")
 
         self.retranslateUi(Form)

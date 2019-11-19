@@ -8,7 +8,6 @@ buffsize=1024          #接收从客户端发来的数据的缓存区大小
 s = socket(AF_INET, SOCK_STREAM)
 s.bind((address,port))
 s.listen(2)     #最大连接数
-ls = doc.get_ten_topic()
 
 def Serializ(Topic):
 
@@ -27,6 +26,7 @@ class ServerThread(threading.Thread):
             self.clientaddress = None
             self.score_list =[]
             self.TestEnd = 0
+            self.path = None
         def tcplink(self,sock,addr):
             while True:
                 clientsock = self.clientsock
@@ -39,7 +39,7 @@ class ServerThread(threading.Thread):
                     break
 
 
-                list_topic = doc.get_ten_topic()
+                list_topic = doc.get_ten_topic(self.path)
                 i = 0
                 while recvdata == "SendTopic":
                     topic = list_topic[i]
@@ -80,3 +80,6 @@ class ServerThread(threading.Thread):
         def sendmsg(self,msg):
             clientsock = self.clientsock
             clientsock.send(msg.encode())
+
+        def setPath(self,path):
+            self.path = path
